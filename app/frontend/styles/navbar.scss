@@ -1,0 +1,32 @@
+nav {
+    background-color: #804040;
+    font-style: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    ul {
+        // color: #fff;
+        display: flex;
+        li {
+            color: #fff;
+            margin: 0 10px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        a:active {
+            color: color #fff;
+        }
+    }
+}
+
+.pagination {
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}

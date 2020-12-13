@@ -1,0 +1,20 @@
+<h1>編輯看板<h1>
+
+<%= render 'form', board: @board %>
+
+
+<%# 如果不是新資料，系統會判斷成你要編輯 %>
+
+<%# <% if @board.errors.any? %> 
+  <%# <ul> %>
+    <%# <% @board.errors.full_messages.each do |message| %> 
+    <%# <li><%= message %>
+    <%# </li> %>
+    <%# <% end %> 
+  <%# </ul> %>
+<%# <% end %> 
+<%# <%= form_for(@board) do |f| %> 
+  <%# <%= f.label :title, '看板標題' %> 
+  <%# <%= f.text_field :title %> 
+  <%# <%= f.submit %> 
+<%# <% end %> 

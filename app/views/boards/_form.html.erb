@@ -1,0 +1,17 @@
+<% if board.errors.any? %>
+  <ul>
+    <% board.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(board) do |f| %>
+  <%= f.label :title, '看板標題' %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+
+<%# 模板裡面儘量不要有@ %>
+<%# 讓它變成區域變數 %>
+<%# 不要讓他去空中抓，而是被被動餵食 %>

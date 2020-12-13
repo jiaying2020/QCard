@@ -1,0 +1,15 @@
+current directory: /Users/atroposlee/QCard/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+/Users/atroposlee/.rvm/rubies/ruby-2.7.1/bin/ruby -I /Users/atroposlee/.rvm/rubies/ruby-2.7.1/lib/ruby/2.7.0 -r ./siteconf20201107-77549-mygh69.rb extconf.rb
+creating Makefile
+
+current directory: /Users/atroposlee/QCard/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/atroposlee/QCard/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/atroposlee/QCard/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20201107-77549-1w5g1vb

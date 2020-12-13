@@ -1,0 +1,37 @@
+<h1>看板列表</h1>
+
+<%# <a href="/boards/new">新增看板</a> %>
+<%# html寫法，不推薦 %>
+
+<%= link_to "新增看板", new_board_path %>
+
+
+<ul>
+<% @boards.each do |board| %>
+  <li>
+    
+    <%= link_to "編輯", edit_board_path(board) %>
+    <%= link_to "刪除", board_path(board), 
+                        method: 'delete', 
+                        data: { confirm: '是否確定刪除？' } %>
+    <%=link_to "開放",open_board_path(board),
+                        method: 'patch'if board.may_open? %>
+    <%=link_to "隱藏",hide_board_path(board),
+                        method: 'patch'if board.may_hide? %>
+    <%=link_to "鎖定",lock_board_path(board),
+                        method: 'patch'if board.may_lock? %>
+    <%= link_to board.title, board, class: board_title_css(board) %>
+
+    
+  </li>
+<% end %>
+</ul>
+
+<%# 用link_to＋有名字的路徑 %>
+<%# (board.id)>--可以不用寫.id，因為path會自動幫你抽id出來 %>
+<%# 修改容易，但效能差，因為要經過翻譯，最推薦line8 %>
+<%# 檢視單筆的，看起來像show的部分，board_path 可以省略 %>
+
+
+<%# view helper %>
+<%# #視圖 %>

@@ -1,0 +1,54 @@
+
+  <%# POST /posts/7/favorite %>
+  <%# 使用者喜歡7號文章 %>
+  
+<h2 data-controller="favorite" data-favorite-id="<%= @post.id %>">
+  <% if user_signed_in? %>
+    <%= link_to '#', data: { action: 'favorite#go' } do %>
+      <% if current_user.favorite?(@post) %>
+        <i class="fas fa-heart" data-target="favorite.icon"></i>
+      <% else %>
+        <i class="far fa-heart" data-target="favorite.icon"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</h2>
+
+  <%# data hash 組出 data id %>
+  <%# 使用post方法，路徑為favorite_post_path %>
+  <%# 包一個block給他，就不用寫html %>
+
+  <%# <h2><i class="far fa-thumbs-up"></i></h2> %>
+
+<h2><%= @post.user.nickname %></h2>
+<h1><%= @post.title %></h1>
+
+<%= link_to '編輯', edit_post_path(@post) if @post.owned_by?(current_user) %>
+
+<article>
+  <%= simple_format(@post.content) %>
+</article>
+
+<%# html的斷行 %>
+
+<%= link_to '回上頁', :back %>
+
+<%= form_for(@comment, url: post_comments_path(@post)) do |f| %>
+  <%= f.text_area :content, placeholder: '請輸入留言' %>
+  <%= f.submit '送出' %>
+<% end %>
+
+
+
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    [<%= comment.user.nickname %>]
+    <%= comment.content %>
+    <%= link_to "刪除", comment, method: 'delete', data: { confirm: '確認？' } %>
+  </li>
+<% end %>
+</ul>
+
+<%# 套件 kaminari的指令 %>
+<%= paginate @comments %>
